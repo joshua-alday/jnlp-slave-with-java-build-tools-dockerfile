@@ -8,6 +8,8 @@ ARG JENKINS_REMOTING_VERSION=3.27
 RUN curl --create-dirs -sSLo /usr/share/jenkins/slave.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/$JENKINS_REMOTING_VERSION/remoting-$JENKINS_REMOTING_VERSION.jar \
   && chmod 755 /usr/share/jenkins \
   && chmod 644 /usr/share/jenkins/slave.jar
+  
+RUN apt-get install -y libunwind-dev
 
 COPY jenkins-slave /usr/local/bin/jenkins-slave
 
